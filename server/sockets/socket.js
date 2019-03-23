@@ -15,7 +15,6 @@ io.on('connection', (client) => {
                 mensaje: 'El nombre/sala es necesario'
             });
         }
-
         client.join(data.sala);
         usuarios.agregarPersona(client.id, data.nombre, data.sala);
         client.broadcast.to(data.sala).emit('listaPersona', usuarios.getPersonaPorSala(data.sala));
